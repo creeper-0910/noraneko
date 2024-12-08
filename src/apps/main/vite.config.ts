@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
 import path from "node:path";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 import { generateJarManifest } from "../common/scripts/gen_jarmanifest";
 
@@ -33,6 +33,7 @@ export default defineConfig({
         core: r("./core/index.ts"),
         "about-preferences": r("./about/preferences/index.ts"),
         "about-newtab": r("./about/newtab/index.ts"),
+        "features-rss": r("./features/rss/index.ts"),
         //env: "./experiment/env.ts",
       },
       output: {

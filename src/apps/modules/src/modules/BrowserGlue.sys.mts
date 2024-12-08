@@ -125,6 +125,17 @@ const JS_WINDOW_ACTORS: {
     },
     matches: ["*://localhost/*"],
   },
+  NRRssFeatures: {
+    child: {
+      esModuleURI: localPathToResourceURI(
+        "../actors/NRRssFeaturesChild.sys.mts",
+      ),
+      events: {
+        DOMContentLoaded: {},
+      },
+    },
+    matches: ["<all_urls>"],
+  },
 };
 
 ActorManagerParent.addJSWindowActors(JS_WINDOW_ACTORS);

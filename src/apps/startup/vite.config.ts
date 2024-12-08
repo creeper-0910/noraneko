@@ -16,6 +16,7 @@ export default defineConfig({
         r("src/chrome_root.ts"),
         r("src/about-preferences.ts"),
         r("src/about-newtab.ts"),
+        r("src/features-rss.ts"),
       ],
     },
     rollupOptions: {
