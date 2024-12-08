@@ -125,10 +125,10 @@ const JS_WINDOW_ACTORS: {
     },
     matches: ["*://localhost/*"],
   },
-  NRRssFeatures: {
+  NRFeaturesRss: {
     child: {
       esModuleURI: localPathToResourceURI(
-        "../actors/NRRssFeaturesChild.sys.mts",
+        "../actors/NRFeaturesRssChild.sys.mts",
       ),
       events: {
         DOMContentLoaded: {},
