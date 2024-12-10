@@ -134,7 +134,7 @@ const JS_WINDOW_ACTORS: {
         DOMContentLoaded: {},
       },
     },
-    matches: ["<all_urls>"],
+    matches: ["*://*/*"],
   },
 };
 

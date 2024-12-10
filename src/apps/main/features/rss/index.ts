@@ -1,1 +1,4 @@
-console.log("hello! rss!");
+export default function init() {
+    console.log("hello! rss!");
+}
+
