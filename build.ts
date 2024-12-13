@@ -1,18 +1,17 @@
+import AdmZip from "adm-zip";
+import { type ResultPromise, execa } from "execa";
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
-import { injectManifest } from "./scripts/inject/manifest.js";
-import { injectXHTML, injectXHTMLDev } from "./scripts/inject/xhtml.js";
-import { applyMixin } from "./scripts/inject/mixin-loader.js";
 import puppeteer, { type Browser } from "puppeteer-core";
-import { createServer, type ViteDevServer, build as buildVite } from "vite";
-import AdmZip from "adm-zip";
-import { execa, type ResultPromise } from "execa";
+import { type ViteDevServer, build as buildVite, createServer } from "vite";
+import { applyPatches, initializeBinGit } from "./scripts/git-patches/git-patches-manager.js";
+import { injectManifest } from "./scripts/inject/manifest.js";
+import { applyMixin } from "./scripts/inject/mixin-loader.js";
+import { injectXHTML, injectXHTMLDev } from "./scripts/inject/xhtml.js";
 import { runBrowser } from "./scripts/launchBrowser/index.js";
 import { savePrefsForProfile } from "./scripts/launchBrowser/savePrefs.js";
-import { writeVersion } from "./scripts/update/version.js";
 import { writeBuildid2 } from "./scripts/update/buildid2.js";
-import { applyPatches } from "./scripts/git-patches/git-patches-manager.js";
-import { initializeBinGit } from "./scripts/git-patches/git-patches-manager.js";
+import { writeVersion } from "./scripts/update/version.js";
 
 //? when the linux binary has published, I'll sync linux bin version
 const VERSION = process.platform === "win32" ? "001" : "000";
@@ -204,8 +203,8 @@ async function run(mode: "dev" | "test" = "dev") {
     applyMixin("_dist/bin"),
     (async () => {
       try {
-        await fs.access("_dist/profile");
-        await fs.rm("_dist/profile", { recursive: true });
+        // await fs.access("_dist/profile");
+        // await fs.rm("_dist/profile", { recursive: true });
       } catch {}
     })(),
   ]);

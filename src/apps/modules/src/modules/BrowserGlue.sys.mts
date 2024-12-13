@@ -1,5 +1,5 @@
-//@ts-expect-error
 import { ActorManagerParent } from "resource://gre/modules/ActorManagerParent.sys.mjs";
+//@ts-expect-error
 
 function localPathToResourceURI(path: string, mtsToMjs = true) {
   if (!path.startsWith("../")) {
@@ -125,6 +125,22 @@ const JS_WINDOW_ACTORS: {
     },
     matches: ["*://localhost/*"],
   },
+  NRFeaturesRss: {
+    parent: {
+      esModuleURI: localPathToResourceURI(
+        "../actors/NRFeaturesRssParent.sys.mts",
+      ),
+    },
+    child: {
+      esModuleURI: localPathToResourceURI(
+        "../actors/NRFeaturesRssChild.sys.mts",
+      ),
+      events: {
+        DOMDocElementInserted: {},
+      },
+    },
+    matches: ["*://*/*"],
+  }
 };
 
 ActorManagerParent.addJSWindowActors(JS_WINDOW_ACTORS);

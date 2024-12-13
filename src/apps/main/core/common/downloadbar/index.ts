@@ -22,7 +22,7 @@ export function init() {
     return;
   }
   document.getElementById("downloadsPanel")?.remove();
-  render(DonwloadBar, document.getElementById("appcontent"), {
+  render(DonwloadBar, document.getElementById("a11y-announcement"), {
     hotCtx: import.meta.hot,
   });
   console.log("init download bar");
