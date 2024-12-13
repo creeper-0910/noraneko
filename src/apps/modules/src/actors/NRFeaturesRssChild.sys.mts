@@ -1,11 +1,9 @@
 export class NRFeaturesRssChild extends JSWindowActorChild {
   handleEvent(event) {
-    if (event.type === "DOMContentLoaded") {
-      //https://searchfox.org/mozilla-central/rev/3a34b4616994bd8d2b6ede2644afa62eaec817d1/browser/actors/AboutNewTabChild.sys.mjs#70
-      Services.scriptloader.loadSubScript(
-        "chrome://noraneko-startup/content/features-rss.js",
-        this.contentWindow,
-      );
+    var url = this.document.location.href;
+    console.log(this.document.location.href);
+    if (url != null && event.type === "DOMContentLoaded" && !url.startsWith('about:')) {
+      this.sendAsyncMessage("FeatureRss:isRssSite", url);
     }
   }
 }

@@ -126,6 +126,11 @@ const JS_WINDOW_ACTORS: {
     matches: ["*://localhost/*"],
   },
   NRFeaturesRss: {
+    parent: {
+      esModuleURI: localPathToResourceURI(
+        "../actors/NRFeaturesRssParent.sys.mts",
+      ),
+    },
     child: {
       esModuleURI: localPathToResourceURI(
         "../actors/NRFeaturesRssChild.sys.mts",
@@ -134,7 +139,8 @@ const JS_WINDOW_ACTORS: {
         DOMContentLoaded: {},
       },
     },
-    matches: ["*://*/*"],
+    matches: ["<all_urls>"],
+    remoteTypes: ["privilegedabout","webIsolated"],
   },
 };
 
