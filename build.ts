@@ -143,6 +143,7 @@ async function run(mode: "dev" | "test" = "dev") {
         define: {
           "import.meta.env.__BUILDID2__": `"${buildid2 ?? ""}"`,
         },
+        base:"http://localhost:5181"
       }),
       await createServer({
         mode,

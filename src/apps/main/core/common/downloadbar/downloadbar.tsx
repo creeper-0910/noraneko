@@ -8,7 +8,7 @@ import downloadbarStyle from "./downloadbar.css?inline";
 export function DonwloadBar() {
   return (
     <>
-      <vbox
+      <div
         id="downloadsPanel"
         data-l10n-id="downloads-panel"
         class="cui-widget-panel panel-no-padding"
@@ -94,13 +94,13 @@ export function DonwloadBar() {
             data-l10n-id="downloads-cmd-clear-downloads"
           />
         </xul:menupopup>
-        <vbox
+        <div
           id="downloadsPanel-multiView"
           mainViewId="downloadsPanel-mainView"
           disablekeynav="true"
         >
-          <hbox id="downloadsPanel-mainView">
-            <vbox class="panel-view-body-unscrollable">
+          <div id="downloadsPanel-mainView">
+            <div class="panel-view-body-unscrollable">
               <div id="downloadsPanel-list">
                 <xul:richlistbox
                   id="downloadsListBox"
@@ -129,10 +129,10 @@ export function DonwloadBar() {
                   />
                 </div>
               </div>
-            </vbox>
-            <vbox id="downloadsFooter">
+            </div>
+            <div id="downloadsFooter">
               <stack>
-                <hbox
+                <div
                   id="downloadsSummary"
                   align="center"
                   orient="horizontal"
@@ -140,7 +140,7 @@ export function DonwloadBar() {
                   onclick="DownloadsSummary.onClick(event);"
                 >
                   <image class="downloadTypeIcon" />
-                  <vbox pack="center" flex="1" class="downloadContainer">
+                  <div pack="center" flex="1" class="downloadContainer">
                     <description id="downloadsSummaryDescription" />
                     <progress
                       id="downloadsSummaryProgress"
@@ -148,9 +148,9 @@ export function DonwloadBar() {
                       max="100"
                     />
                     <description id="downloadsSummaryDetails" crop="end" />
-                  </vbox>
-                </hbox>
-                <vbox id="downloadsFooterButtons">
+                  </div>
+                </div>
+                <div id="downloadsFooterButtons">
                   <toolbarseparator />
                   <button
                     id="downloadsHistory"
@@ -160,12 +160,12 @@ export function DonwloadBar() {
                     oncommand="DownloadsPanel.showDownloadsHistory();"
                     pack="start"
                   />
-                </vbox>
+                </div>
               </stack>
-            </vbox>
-          </hbox>
-        </vbox>
-      </vbox>
+            </div>
+          </div>
+        </div>
+      </div>
       <style class="nora-downloadbar" jsx>
         {downloadbarStyle}
       </style>

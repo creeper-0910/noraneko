@@ -8,7 +8,7 @@ import { DonwloadBar } from "./downloadbar";
 import { DownloadBarManager } from "./downloadbar-manager";
 
 export let manager: DownloadBarManager;
-
+//HMRを実行するとエラーにより正常に表示されなくなる("downloadsPanel"が再生成されないため)
 export function init() {
   createRootHMR(
     () => {
