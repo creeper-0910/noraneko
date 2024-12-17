@@ -30,12 +30,12 @@ const isExists = async (path: string) => {
 const getBinArchive = () => {
   if (process.platform === "win32") {
     return "noraneko-win-amd64-dev.zip";
-  } else if (process.platform === "linux") {
+  } if (process.platform === "linux") {
     const arch = process.arch;
     if (arch === "arm64") {
       return "noraneko-linux-aarch64-dev.zip";
-    } else if (arch === "x64") {
-      return "noraneko-linux-amd64-dev.zip"; 
+    } if (arch === "x64") {
+      return "noraneko-linux-amd64-dev.zip";
     }
   }
   throw new Error("Unsupported platform/architecture");
@@ -285,6 +285,7 @@ async function release(mode: "before" | "after") {
         define: {
           "import.meta.env.__BUILDID2__": `"${buildid2 ?? ""}"`,
         },
+        base: "chrome://noraneko/content"
       }),
       buildVite({
         configFile: r("./src/apps/designs/vite.config.ts"),
@@ -293,6 +294,7 @@ async function release(mode: "before" | "after") {
       buildVite({
         configFile: r("./src/apps/settings/vite.config.ts"),
         root: r("./src/apps/settings"),
+        base: "chrome://noraneko-settings/content"
       }),
 
       //applyMixin(binPath),
