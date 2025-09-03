@@ -139,6 +139,12 @@ export async function run(mode = "dev", buildid2: string): Promise<void> {
     ];
 
     const dirPath = "_dist/noraneko";
+    try {
+      if (exists(dirPath)) {
+        safeRemove(dirPath);
+      }
+    } catch {}
+    Deno.mkdirSync(dirPath);
 
     for (const [subdir, target] of mounts) {
       const linkPath = path.resolve(dirPath, subdir);
