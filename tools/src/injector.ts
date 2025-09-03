@@ -27,7 +27,7 @@ export async function injectXhtmlFromTs(isDev = false): Promise<void> {
 export function run(mode: string, dirName = "noraneko-devdir"): void {
   const manifestPath = path.join(BIN_DIR, "chrome.manifest");
 
-  if (mode !== "prod") {
+  if (mode !== "production") {
     let manifest = "";
     if (exists(manifestPath)) {
       manifest = Deno.readTextFileSync(manifestPath);
