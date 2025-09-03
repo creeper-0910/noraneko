@@ -64,6 +64,8 @@ export const BIN_DIR =
 export const BIN_ROOT_DIR = PATHS.bin_root;
 export const BIN_PATH = path.join(BIN_DIR, BRANDING.base_name);
 
+export const PROD_BIN_DIR = "../obj-artifact-build-output/dist/bin";
+
 export const BIN_PATH_EXE =
   PLATFORM !== "darwin"
     ? BIN_PATH + (PLATFORM === "windows" ? ".exe" : "-bin")
