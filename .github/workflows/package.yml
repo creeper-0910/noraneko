@@ -55,9 +55,6 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-      - name: init zx
-        run: |
-          deno install -g -A npm:zx
 
       - name: Setup Noraneko
         run: |
@@ -75,7 +72,7 @@ jobs:
       - name: Write Versions
         run: |
           cd ./noraneko
-          deno task build --write-version
+          deno task feles-build misc writeVersion
           cd ..
 
       - name: Mach configure
@@ -139,7 +136,7 @@ jobs:
           fi
 
       - name: Get Artifact Name
-        shell: zx --verbose {0}
+        shell: bash
         env:
           FORCE_COLOR: 3
           BUILD_PLATFORM: ${{ inputs.platform }}
@@ -221,7 +218,7 @@ jobs:
       - name: Build Noraneko
         run: |
           cd ./noraneko
-          NODE_ENV='production' deno task build --release-build-before
+          NODE_ENV='production' deno task feles-build build --phase before-mach
           cd ..
 
       - name: Build
@@ -237,7 +234,7 @@ jobs:
       - name: Inject Noraneko
         run: |
           cd ./noraneko
-          deno task build --release-build-after
+          deno task feles-build build --phase after-mach
 
           # https://www.spinics.net/lists/git/msg391750.html
           rsync -aL ../obj-artifact-build-output/dist/bin/ ../obj-artifact-build-output/dist/tmp__bin

@@ -231,6 +231,9 @@ async function main(): Promise<void> {
         const idx = argv.indexOf("--action");
         const action = idx >= 0 ? argv[idx + 1] : "apply";
         runPatch(action);
+      } else if (sub === "writeVersion") {
+        Update.writeVersion("static/gecko");
+        logger.success("Version written to static/gecko/config/");
       } else {
         logger.error(`Unknown misc command: ${sub}`);
         printHelp();
