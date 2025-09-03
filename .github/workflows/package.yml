@@ -232,9 +232,9 @@ jobs:
       - name: Build
         run: |
           if [ "${{inputs.platform}}" == "Windows-x86_64" ]; then
-            MOZ_ARTIFACT_FILE=$(echo ~/artifacts/noraneko-windows-x86_64-moz-artifact.zip) ./mach build
+            MOZ_ARTIFACT_FILE=$(echo ~/artifacts/noraneko-windows-x86_64-moz-artifact/noraneko-windows-x86_64-moz-artifact.zip) ./mach build
           elif [ "${{inputs.platform}}" == "Linux-x86_64" ]; then
-            MOZ_ARTIFACT_FILE=$(echo ~/artifacts/noraneko-linux-x86_64-moz-artifact.tar.xz) ./mach build
+            MOZ_ARTIFACT_FILE=$(echo ~/artifacts/noraneko-linux-x86_64-moz-artifact/noraneko-linux-x86_64-moz-artifact.tar.xz) ./mach build
           fi
 
       - name: Inject Noraneko
