@@ -207,12 +207,9 @@ jobs:
         if: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID != 'false' }}
         run: |
           mkdir -p ~/artifacts
-          cd ~/downloads
-          if [ "${{inputs.platform}}" == "Windows-x86_64" ]; then
-            zip -r ~/artifacts/noraneko-win-amd64-moz-artifact.zip ./*
-          else
-            cp -r ~/downloads/* ~/artifacts
-          fi
+
+          cp -r ~/downloads/* ~/artifacts
+          ls -R ~/artifacts
 
           cd $GITHUB_WORKSPACE
 
