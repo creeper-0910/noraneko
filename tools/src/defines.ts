@@ -39,6 +39,7 @@ export const PROJECT_ROOT = path.resolve(
 export const PATHS = {
   root: PROJECT_ROOT,
   bin_root: path.join(PROJECT_ROOT, "_dist", "bin"),
+  noraneko_out: path.join(PROJECT_ROOT, "_dist", "noraneko"),
   buildid2: path.join(PROJECT_ROOT, "_dist", "buildid2"),
   profile_test: path.join(PROJECT_ROOT, "_dist", "profile", "test"),
   loader_features: path.join(PROJECT_ROOT, "bridge/loader-features"),
