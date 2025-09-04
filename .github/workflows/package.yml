@@ -257,7 +257,7 @@ jobs:
                 fi
               done
             done
-          else
+          # else
           #  git apply --reject ./tools/build/tasks/git-patches/patches/*.patch --directory ../obj-artifact-build-output/dist/bin --unsafe-paths --check --apply
           fi
 
