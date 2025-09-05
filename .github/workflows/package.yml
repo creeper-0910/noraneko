@@ -270,6 +270,7 @@ jobs:
       - name: mkdir noraneko-installer
         run: |
           mkdir -p ~/noraneko-installer
+          sudo apt install -y build-essential debhelper
 
       - name: Package noraneko
         if: ${{ inputs.platform == 'Linux-x86_64' }}
