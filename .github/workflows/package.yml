@@ -267,6 +267,10 @@ jobs:
         run: |
           ./mach package
 
+      - name: mkdir noraneko-installer
+        run: |
+          mkdir -p ~/noraneko-installer
+
       - name: Package noraneko
         if: ${{ inputs.platform == 'Linux-x86_64' }}
         run: |
@@ -274,7 +278,6 @@ jobs:
 
       - name: Rename and move installer
         run: |
-          mkdir -p ~/noraneko-installer
           mv obj-*/dist/$INSTALLER_PATH ~/noraneko-installer/$OUTPUT_INSTALLER_NAME
 
       - name: Download artifact of MAR tools (Actions)
